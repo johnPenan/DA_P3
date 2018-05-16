@@ -13,12 +13,12 @@ public class Challenger {
 			do {
 				essai++;
 				do {
-					System.out.println(nbreSecret);
-					System.out.println("Veillez saisir votre combinaison :");
+					System.out.println("Le nombre secret généré: " + nbreSecret);
+					System.out.println("\nVeillez saisir votre combinaison :");
 					maCombinaison = sc.nextInt();
 					sc.nextLine();
 					if (maCombinaison < 1000 || maCombinaison > 10000)
-						System.out.println("Votre combinaison doit être comprise entre 1000 et 10000 !");
+						System.out.println("\nVotre combinaison doit être comprise entre 1000 et 10000 !");
 				} while (maCombinaison < 1000 || maCombinaison > 10000);
 				if (maCombinaison < nbreSecret)
 					System.out
@@ -32,9 +32,11 @@ public class Challenger {
 					System.out.println("Vous avez depassé le nombre d'essai posssible !");
 			} while (essai < 4);
 			do {
-				maCombinaison = sc.nextInt();
-				sc.nextLine();
+				//Génértion d'une nouvelle combinaison aléatoire à chaque lancement de l'application.
+				nbreSecret = rand.nextInt(10000 - 1000 + 1) + 1000;
 				System.out.println("Voulez-vous rejouer ? (0/N)");
+				reponse = sc.nextLine().charAt(0);
+				sc.nextLine();
 			} while (reponse != 'O' && reponse != 'N');
 
 		} while (reponse == 'O');
