@@ -30,9 +30,10 @@ public class Challenger {
 					System.out.println("Bravo ! " + maCombinaison + " est bien la combinaison sécrète !");
 				if (essai == 4)
 					System.out.println("Vous avez depassé le nombre d'essai posssible !");
-			} while (essai < 4);
+			} while (essai < 4 && maCombinaison != nbreSecret);
 			do {
-				//Génértion d'une nouvelle combinaison aléatoire à chaque lancement de l'application.
+				// Génértion d'une nouvelle combinaison aléatoire à chaque lancement de
+				// l'application.
 				nbreSecret = rand.nextInt(10000 - 1000 + 1) + 1000;
 				System.out.println("Voulez-vous rejouer ? (0/N)");
 				reponse = sc.nextLine().charAt(0);
