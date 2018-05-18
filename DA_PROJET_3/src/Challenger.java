@@ -28,7 +28,7 @@ public class Challenger {
 							.println("La combinaison " + maCombinaison + " est supérieure à la combinaison sécrète !");
 				else
 					System.out.println("Bravo ! " + maCombinaison + " est bien la combinaison sécrète !");
-				if (essai == 4)
+				if (essai == 4 && maCombinaison!=nbreSecret)
 					System.out.println("Vous avez depassé le nombre d'essai posssible !");
 			} while (essai < 4 && maCombinaison != nbreSecret);
 			do {
