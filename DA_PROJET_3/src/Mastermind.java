@@ -33,17 +33,11 @@ public class Mastermind {
 					// extraction des caractères
 					char nb2 = t2.charAt(i);
 					// Comparaison des caratères
-					if ((nb2 < nb) ) {
+					if ((nb2 < nb) || (nb2>nb) ) {
 						nb2=nb=0;
 						position=nb2+nb;
 						position++;
 						System.out.print(position+" mal placé, ");
-					}
-					else if (nb2>nb) {
-						nb2=nb=0;
-						position=nb2+nb;
-						position++;
-						System.out.print(position+" mal placé,");
 					}
 					else {
 						nb2=nb=0;
