@@ -13,29 +13,50 @@ public class Challenger {
 			do {
 				essai++;
 				do {
-					System.out.println("Le nombre secret généré: " + nbreSecret);
+					System.out.println("\nLe nombre secret généré: " + nbreSecret);
 					System.out.println("\nVeillez saisir votre combinaison :");
 					maCombinaison = sc.nextInt();
 					sc.nextLine();
 					if (maCombinaison < 1000 || maCombinaison > 10000)
 						System.out.println("\nVotre combinaison doit être comprise entre 1000 et 10000 !");
 				} while (maCombinaison < 1000 || maCombinaison > 10000);
-				if (maCombinaison < nbreSecret)
-					System.out
-							.println("La combinaison " + maCombinaison + " est inférieure à la combinaison secrète !");
-				else if (maCombinaison > nbreSecret)
-					System.out
-							.println("La combinaison " + maCombinaison + " est supérieure à la combinaison sécrète !");
-				else
-					System.out.println("Bravo ! " + maCombinaison + " est bien la combinaison sécrète !");
+//				if (maCombinaison < nbreSecret)
+//					System.out
+//							.println("La combinaison " + maCombinaison + " est inférieure à la combinaison secrète !");
+//				else if (maCombinaison > nbreSecret)
+//					System.out
+//							.println("La combinaison " + maCombinaison + " est supérieure à la combinaison sécrète !");
+//				else
+//					System.out.println("Bravo ! " + maCombinaison + " est bien la combinaison sécrète !");
+				
+				//Recherche +/-
+				System.out.print("Proposition : " + maCombinaison + " -> Reponse : ");
+				for (int i = 0; i < 4; i++) {
+					// Conversion en chaine de caractère la combinaison aléatoire
+					String t = String.valueOf(nbreSecret);
+					// extraction des caractères
+					char nb = t.charAt(i);
+					// Conversion en chaine de caractère la combinaison de l'utilisateur
+					String t2 = String.valueOf(maCombinaison);
+					// extraction des caractères
+					char nb2 = t2.charAt(i);
+					// Comparaison des caratères
+					if (nb2 < nb)
+						System.out.print("-");
+					else if (nb2 > nb)
+						System.out.print("+");
+					else
+						System.out.print("=");
+				}
+				
 				if (essai == 4 && maCombinaison!=nbreSecret)
-					System.out.println("Vous avez depassé le nombre d'essai posssible !");
+					System.out.println("\nVous avez depassé le nombre d'essai posssible !");
 			} while (essai < 4 && maCombinaison != nbreSecret);
 			do {
 				// Génértion d'une nouvelle combinaison aléatoire à chaque lancement de
 				// l'application.
 				nbreSecret = rand.nextInt(10000 - 1000 + 1) + 1000;
-				System.out.println("Voulez-vous rejouer ? (0/N)");
+				System.out.print("\nVoulez-vous rejouer ? (0/N)");
 				reponse = sc.nextLine().charAt(0);
 				sc.nextLine();
 			} while (reponse != 'O' && reponse != 'N');
@@ -44,5 +65,7 @@ public class Challenger {
 		System.out.println("Au revoir...!");
 
 	}
-
 }
+
+
+		
