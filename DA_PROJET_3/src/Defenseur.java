@@ -15,7 +15,7 @@ public class Defenseur {
 			essai=0;
 			do {
 				essai++;
-				System.out.println("Recherche de l'ordinateur:");
+				System.out.println("\nCombinaison de l'ordinateur:");
 				combinaisonOrdi = rand.nextInt(10000 - 1000 + 1) + 1000;
 				for (int i = 0; i < 4; i++) {
 					String t = String.valueOf(maCombinaison);
@@ -23,18 +23,14 @@ public class Defenseur {
 					String t2 = String.valueOf(combinaisonOrdi);
 					char caracT2 = t2.charAt(i);
 					if (caracT2 > caracT)
-						System.out.println("La combinaison " + combinaisonOrdi + " de l'ordinateur est supérieur à "
-								+ maCombinaison);
+						System.out.print("+");
 					else if (caracT2 < caracT)
-						System.out.println("La combinaison " + combinaisonOrdi + " de l'ordinateur est inférieur à "
-								+ maCombinaison);
+						System.out.print("+");
 					else
-						System.out.println(
-								"La combinaison " + combinaisonOrdi + " de l'ordinateur est égale à " + maCombinaison);
-				}
-					if (essai == 4 && combinaisonOrdi != maCombinaison)
-						System.out.println("M. Ordinateur vous avez depassé le nombre d'essai...!");
-			} while (essai < 4 && combinaisonOrdi != maCombinaison);
+						System.out.print("=");				}
+					if (essai == 4 /*&& combinaisonOrdi != maCombinaison*/)
+						System.out.println("\nM. Ordinateur vous avez depassé le nombre d'essai...!");
+			} while (essai < 4 /*&& combinaisonOrdi != maCombinaison*/);
 
 		} while (reponse == 'O');
 
