@@ -8,31 +8,39 @@ public class Defenseur {
 		int combinaisonOrdi, maCombinaison, essai = 0;
 		Scanner sc = new Scanner(System.in);
 		char reponse = 'O';
-		System.out.println("Veillez saisir votre combinaison:");
-		maCombinaison = sc.nextInt();
-		sc.nextLine();
 		do {
-			essai=0;
+			System.out.println("Veillez saisir votre combinaison:");
+			maCombinaison = sc.nextInt();
+			sc.nextLine();
+			essai = 0;
 			do {
 				essai++;
-				System.out.println("\nCombinaison de l'ordinateur:");
+				System.out.println("\nRecherche de combinaison de l'ordinateur:");
 				combinaisonOrdi = rand.nextInt(10000 - 1000 + 1) + 1000;
+				System.out.print("Proposition Ordinateur : " + combinaisonOrdi + " -> Reponse : ");
 				for (int i = 0; i < 4; i++) {
-					String t = String.valueOf(maCombinaison);
-					char caracT = t.charAt(i);
-					String t2 = String.valueOf(combinaisonOrdi);
-					char caracT2 = t2.charAt(i);
-					if (caracT2 > caracT)
+					String utilisateur = String.valueOf(maCombinaison);
+					char caracUtilisateur = utilisateur.charAt(i);
+					String ordinateur = String.valueOf(combinaisonOrdi);
+					char caracOrdinateur = ordinateur.charAt(i);
+					if (caracOrdinateur > caracUtilisateur)
 						System.out.print("+");
-					else if (caracT2 < caracT)
-						System.out.print("+");
+					else if (caracOrdinateur < caracUtilisateur)
+						System.out.print("-");
 					else
-						System.out.print("=");				}
-					if (essai == 4 /*&& combinaisonOrdi != maCombinaison*/)
-						System.out.println("\nM. Ordinateur vous avez depassé le nombre d'essai...!");
-			} while (essai < 4 /*&& combinaisonOrdi != maCombinaison*/);
+						System.out.print("=");
+				}
+				if (essai == 4)
+					System.out.println("\nM. Ordinateur vous avez depassé le nombre d'essai...!");
+			} while (essai < 4);
+			do {
+				System.out.println("Voulez-vous rejouer ? (O/N)");
+				reponse = sc.nextLine().charAt(0);
+				sc.nextLine();
+			} while (reponse != 'O' && reponse != 'N');
 
 		} while (reponse == 'O');
+		System.out.println("Au revoir...!");
 
 	}
 
